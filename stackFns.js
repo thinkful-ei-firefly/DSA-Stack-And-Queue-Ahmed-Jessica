@@ -74,4 +74,47 @@ function parenthesisCheck (string) {
   return true;
 }
 
-module.exports = { peek, isEmpty, display, is_palindrome, parenthesisCheck };
+function sortStack (stack) {
+  if (stack.top === null || stack.top.next === null) return stack;
+  //iterate through the given stack once and identify minValue and maxValue.
+  //push maxValue to newStack.top
+  //iterate through the given stack again to find the next largest number
+  //that is less than newStack.top
+  //once we've taken one pass through the given stack, we will push the current value
+  //of largestValue to newStack
+  //run this iteration until newStack.top === minValue  
+  
+  const newStack = new Stack();
+  let minValue = stack.top.value;
+  let maxValue = stack.top.value;
+  let currNode = stack.top;
+  while (currNode.next !== null) {
+    if (currNode.value > maxValue) maxValue = currNode.value;
+    if (currNode.value < minValue) minValue = currNode.value;
+    currNode = currNode.next;
+  }
+  if (currNode.value > maxValue) maxValue = currNode.value;
+  if (currNode.value < minValue) minValue = currNode.value;
+
+  newStack.push(maxValue);
+
+  while (newStack.top.value !== minValue) {
+    let currNode = stack.top;
+    let currMax = minValue;
+    
+    while (currNode.next !== null) {
+      if (currNode.value > currMax && currNode.value < newStack.top.value) {
+        currMax = currNode.value;
+      }
+      currNode = currNode.next;
+    }
+    if (currNode.value > currMax && currNode.value < newStack.top.value) {
+      currMax = currNode.value;
+    }
+    newStack.push(currMax);
+  }
+
+  return newStack;
+}
+
+module.exports = { peek, isEmpty, display, is_palindrome, parenthesisCheck, sortStack };
