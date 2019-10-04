@@ -1,7 +1,7 @@
 'use strict';
 
 const Stack = require('./stack');
-const { peek, isEmpty, display, is_palindrome } = require('./stackFns');
+const { peek, isEmpty, display, is_palindrome, parenthesisCheck } = require('./stackFns');
 
 function main () {
   const starTrek = new Stack();
@@ -40,3 +40,10 @@ function palindromeTest () {
   console.log(is_palindrome('The quick brown fox jumps over the lazy dog'));
 }
 // palindromeTest();
+
+function parenTest () {
+  console.log(parenthesisCheck('This is a test (dont tell anyone!)'));
+  console.log(parenthesisCheck('This is a test (dont tell anyone!))'));
+  console.log(parenthesisCheck('This is a test ((dont tell anyone!)'));
+}
+// parenTest();
