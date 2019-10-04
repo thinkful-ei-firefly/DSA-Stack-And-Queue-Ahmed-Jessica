@@ -19,4 +19,19 @@ function display (queue) {
   console.log(currNode.value);
 }
 
-module.exports = { peek, isEmpty, display };
+function ophidinBank (queue) {
+  while (queue.first){
+    let person = queue.dequeue();
+    let random = Math.random();
+    if (random < .25) {
+      queue.enqueue(person);
+      console.log(`${person} paperwork isn't quite right, and moved back to the end of the queue`)
+    } else {
+      console.log(`${person} served`);
+
+    }
+  }
+  console.log(`Served everybody`)
+}
+
+module.exports = { peek, isEmpty, display, ophidinBank };
