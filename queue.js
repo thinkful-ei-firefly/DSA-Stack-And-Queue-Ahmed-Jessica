@@ -1,9 +1,9 @@
 'use strict';
 
 class _Node {
-  constructor (value, next) {
+  constructor (value) {
     this.value = value;
-    this.next = next;
+    this.next = null;
   }
 }
 
@@ -14,9 +14,10 @@ class Queue {
   }
   
   enqueue (data) {
-    const newNode = new _Node(data, null);
+    const newNode = new _Node(data);    
+    if (this.first === null) this.first = newNode;
+    if (this.last) this.last.next = newNode;
     this.last = newNode;
-    if (!this.first) this.first = newNode;
   }
   
   dequeue () {

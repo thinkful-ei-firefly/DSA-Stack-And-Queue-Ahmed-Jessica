@@ -1,7 +1,6 @@
 'use strict';
 
 const Stack = require('./stack');
-const Queue = require('./queue');
 const { peek, isEmpty, display, is_palindrome, parenthesisCheck, sortStack } = require('./stackFns');
 
 function main () {
@@ -61,14 +60,3 @@ function sortTest () {
   display(sorted);
 }
 // sortTest();
-
-function queueTest () {
-  const starTrekQ = new Queue();
-
-  starTrekQ.enqueue('Kirk');
-  starTrekQ.enqueue('Spock');
-  starTrekQ.enqueue('Uhara');
-  starTrekQ.enqueue('Sulu');
-  starTrekQ.enqueue('Checkov');
-}
-queueTest();
