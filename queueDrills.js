@@ -2,7 +2,7 @@
 
 const Queue = require('./queue');
 const DoubleQueue = require('./doubleQueue');
-const { peek, isEmpty, display } = require('./queueFns');
+const { peek, isEmpty, display, ophidinBank} = require('./queueFns');
 
 function queueTest () {
   const starTrekQ = new Queue();
@@ -43,4 +43,19 @@ function doubleQueueTest () {
   console.log(peek(starTrekQ));
     
 }
-doubleQueueTest();
+// doubleQueueTest();
+
+function ophidinBankTest (){
+  const BQ = new Queue();
+  
+  BQ.enqueue('person a');
+  BQ.enqueue('person b');
+  BQ.enqueue('person c');
+  BQ.enqueue('person d');
+  BQ.enqueue('person e');
+  BQ.enqueue('person f');
+  
+  ophidinBank(BQ);
+  }
+  
+  ophidinBankTest();
